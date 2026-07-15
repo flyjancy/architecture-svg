@@ -1,0 +1,4 @@
+interface:
+  display_name: "Architecture SVG"
+  short_description: "Create Jerry-style architecture SVG diagrams"
+  default_prompt: "Use $architecture-svg to create a Jerry-style dark technical architecture diagram from structured JSON or YAML."
