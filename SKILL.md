@@ -27,6 +27,7 @@ Read `references/schema.md` for the input contract and `references/theme.md` for
 6. Add a compact legend only when color has persistent semantic meaning. Add `<title>`, `<desc>`, `role="img"`, and `aria-labelledby` to every SVG.
 7. Wrap the SVG in a `figure` with a soft light surface and a mono caption. Keep the caption outside the SVG so the figure can be reused in documents.
 8. Inspect the rendered result at desktop and narrow widths. Fix clipped text, crossing edges, cramped labels, and unclear arrow direction before delivering it.
+9. Perform a collision pass: confirm that text never overlaps lines, arrowheads, node borders, group boundaries, legends, captions, or other labels. Adjust geometry, connector lanes, label offsets, or block sizes when it does; do not hide the collision by merely shrinking the font.
 
 ## Rendering Choices
 
@@ -54,6 +55,7 @@ Use the matching edge classes for important flows: `edge`, `edge-g`, `edge-c`, `
 - Start with the visual relationship, not a decorative title or card grid.
 - Prefer a few large, legible blocks over many tiny boxes.
 - Keep labels short. Put detail in a second line, a note, or the caption.
+- Reserve clear space around every label. Never route a connector or arrowhead through text, and never place text on top of a boundary unless the overlap is an intentional, documented annotation.
 - Use one visual language per figure: blocks plus connectors, a bitfield, a matrix, or a pipeline.
 - Use dashed boundaries for dies, clusters, reserved fields, or conceptual groupings. Use dashed connectors for zoom guides or optional paths.
 - Use a low-opacity semantic fill and a thin, muted semantic stroke. Do not color every border with a different hue.
@@ -78,7 +80,8 @@ Every generated SVG must:
 Before delivery, verify:
 
 - Labels fit inside their parent blocks at the final `viewBox` scale.
-- Text does not overlap connectors, legends, captions, or the canvas edge.
+- Text does not overlap connectors, arrowheads, node borders, group boundaries, legends, captions, other labels, or the canvas edge.
+- Lines do not pass through text or create ambiguous tangencies with text and borders; adjust paths and label offsets until the figure reads cleanly at normal viewing size.
 - The SVG scales down without horizontal page overflow. Use `width:100%` and preserve aspect ratio.
 - Color is paired with text, position, shape, or line style; meaning must not depend on color alone.
 - The figure remains understandable in grayscale or with semantic colors muted.

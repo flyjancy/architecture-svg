@@ -36,6 +36,13 @@ Use `--gold` for the primary emphasis and navigation state. Use the other muted 
 
 Keep label hierarchy visible through size and color. Do not use many font weights or large text inside compact blocks.
 
+## Collision And Spacing Pass
+
+- Treat any text touching or crossing a connector, arrowhead, node border, group boundary, legend, caption, or another label as a visual defect.
+- Keep labels in clear lanes above or below paths. Use explicit offsets and short second lines instead of placing long text on top of a line.
+- Inspect the final `viewBox` at normal rendered size. If a label collides, move the path or label and enlarge the block before reducing font size.
+- Check narrow-width rendering as well as desktop rendering; responsive scaling must not turn a small gap into an overlap.
+
 ## SVG Classes
 
 The shared SVG classes are:
@@ -95,7 +102,7 @@ Use a horizontal sequence of blocks. Group the new or emphasized backend in a se
 
 ### Pipeline
 
-Use explicit orthogonal paths and a single reading direction. Place annotations above or below the path, never on top of edges.
+Use explicit orthogonal paths and a single reading direction. Place annotations above or below the path, never on top of edges. Leave enough vertical clearance for arrowheads and labels.
 
 ### Bitfield
 
