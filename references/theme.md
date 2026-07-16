@@ -1,29 +1,29 @@
 # Architecture SVG Theme
 
-This theme is a restrained dark technical style inspired by Jerry's design language. Keep the semantic mapping stable across figures.
+This theme is a restrained soft light technical style inspired by Jerry's design language. Keep the semantic mapping stable across figures.
 
 ## Tokens
 
 ```css
---bg: #0b0f14;
---bg-2: #0e141b;
---bg-3: #141c26;
---bg-4: #1a2430;
---line: #23303f;
---line-2: #2e3e50;
---ink: #e7eef5;
---ink-dim: #9fb0c0;
---ink-faint: #62748a;
---gold: #f4b740;
---gold-2: #ffd27a;
---cyan: #48cbe0;
---lime: #9bd84e;
---blue: #5e9be6;
---pink: #ec6fa6;
---red: #ef6f6f;
+--bg: #f4f6f3;
+--bg-2: #ffffff;
+--bg-3: #edf2ef;
+--bg-4: #e3ebe7;
+--line: #d8e1dc;
+--line-2: #b8c7c0;
+--ink: #25363a;
+--ink-dim: #5d7072;
+--ink-faint: #829294;
+--gold: #b4863b;
+--gold-2: #d2ad68;
+--cyan: #4b9da5;
+--lime: #78a35f;
+--blue: #668ab2;
+--pink: #b47c94;
+--red: #c87368;
 ```
 
-Use `--gold` for the primary emphasis and navigation state. Use the other semantic colors only for persistent categories. Use low-opacity fills around 0.10-0.15 and thin strokes around 1.3-1.6px.
+Use `--gold` for the primary emphasis and navigation state. Use the other muted semantic colors only for persistent categories. Use low-opacity fills around 0.12-0.16 and thin strokes around 1.3-1.6px so the figure stays soft without losing structure.
 
 ## Typography
 
@@ -46,11 +46,11 @@ The shared SVG classes are:
 .dgm .lbl       primary label
 .dgm .sub       secondary label
 .dgm .tiny      annotation or bit width
-.dgm .vec       gold semantic fill and stroke
-.dgm .uni       cyan semantic fill and stroke
-.dgm .ten       lime semantic fill and stroke
-.dgm .mem       blue semantic fill and stroke
-.dgm .ctl       pink semantic fill and stroke
+.dgm .vec       muted ochre semantic fill and stroke
+.dgm .uni       muted cyan semantic fill and stroke
+.dgm .ten       muted green semantic fill and stroke
+.dgm .mem       muted blue semantic fill and stroke
+.dgm .ctl       muted rose semantic fill and stroke
 .dgm .t-vec    gold label text
 .dgm .t-uni    cyan label text
 .dgm .t-ten    lime label text
@@ -81,7 +81,7 @@ Use a single wrapper around each diagram:
 </figure>
 ```
 
-The wrapper uses `background: var(--bg-2)`, `border: 1px solid var(--line)`, a modest radius, and padding. The SVG itself should remain transparent unless a filled region is part of the diagram.
+The wrapper uses a white surface with `background: var(--bg-2)`, `border: 1px solid var(--line)`, a modest radius, and padding. The SVG itself should remain transparent unless a filled region is part of the diagram.
 
 ## Layout Patterns
 

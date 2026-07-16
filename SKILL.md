@@ -1,6 +1,6 @@
 ---
 name: architecture-svg
-description: Create polished static architecture and data-path diagrams from structured JSON or YAML using inline SVG, with a Jerry-inspired dark technical theme, semantic colors, manual layout control, legends, captions, and accessible responsive HTML embedding. Use for RTL, CPU/GPU, SoC, compiler, ISA, memory, pipeline, dependency, and other engineering architecture figures when exact visual composition matters.
+description: Create polished static architecture and data-path diagrams from structured JSON or YAML using inline SVG, with a soft light technical theme, semantic colors, manual layout control, legends, captions, and accessible responsive HTML embedding. Use for RTL, CPU/GPU, SoC, compiler, ISA, memory, pipeline, dependency, and other engineering architecture figures when exact visual composition matters.
 ---
 
 # Architecture SVG
@@ -25,7 +25,7 @@ Read `references/schema.md` for the input contract and `references/theme.md` for
 4. Draw edges before nodes. Use simple orthogonal or gently curved paths with restrained neutral strokes. Add arrow markers only where direction matters.
 5. Draw group boundaries, nodes, labels, sublabels, and notes using the shared classes from `references/theme.md`.
 6. Add a compact legend only when color has persistent semantic meaning. Add `<title>`, `<desc>`, `role="img"`, and `aria-labelledby` to every SVG.
-7. Wrap the SVG in a `figure` with a dark surface and a mono caption. Keep the caption outside the SVG so the figure can be reused in documents.
+7. Wrap the SVG in a `figure` with a soft light surface and a mono caption. Keep the caption outside the SVG so the figure can be reused in documents.
 8. Inspect the rendered result at desktop and narrow widths. Fix clipped text, crossing edges, cramped labels, and unclear arrow direction before delivering it.
 
 ## Rendering Choices
@@ -56,7 +56,7 @@ Use the matching edge classes for important flows: `edge`, `edge-g`, `edge-c`, `
 - Keep labels short. Put detail in a second line, a note, or the caption.
 - Use one visual language per figure: blocks plus connectors, a bitfield, a matrix, or a pipeline.
 - Use dashed boundaries for dies, clusters, reserved fields, or conceptual groupings. Use dashed connectors for zoom guides or optional paths.
-- Use a low-opacity semantic fill and a thin semantic stroke. Do not color every border with a different hue.
+- Use a low-opacity semantic fill and a thin, muted semantic stroke. Do not color every border with a different hue.
 - Use a stronger stroke only for a deliberately highlighted shared resource or critical path.
 - Keep the canvas wide and shallow when the relationship is sequential. Use square geometry only for arrays and grids.
 - Keep the figure surface unframed in the outer page when the host already provides a figure wrapper; do not nest decorative cards.
