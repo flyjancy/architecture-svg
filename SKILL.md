@@ -28,6 +28,7 @@ Read `references/schema.md` for the input contract and `references/theme.md` for
 7. Wrap the SVG in a `figure` with a light diagram surface and a Calibri caption. Keep the caption outside the SVG so the figure can be reused in documents.
 8. Inspect the rendered result at desktop and narrow widths. Fix clipped text, crossing edges, cramped labels, and unclear arrow direction before delivering it.
 9. Perform a collision pass: confirm that text never overlaps lines, arrowheads, node borders, group boundaries, legends, captions, or other labels. Adjust geometry, connector lanes, label offsets, or block sizes when it does; do not hide the collision by merely shrinking the font.
+10. If the SVG will be opened directly as a file, add `xmlns="http://www.w3.org/2000/svg"` and explicit root `width`/`height` attributes. Keep the responsive `width:100%; height:auto` behavior in the HTML wrapper, but do not rely on `height="auto"` for a standalone SVG because some viewers calculate a zero-height canvas.
 
 ## Rendering Choices
 
@@ -62,6 +63,9 @@ Use the matching edge classes for important flows: `edge`, `edge-g`, `edge-c`, `
 - Use a stronger stroke only for a deliberately highlighted shared resource or critical path.
 - Keep the canvas wide and shallow when the relationship is sequential. Use square geometry only for arrays and grids.
 - Keep the figure surface unframed in the outer page when the host already provides a figure wrapper; do not nest decorative cards.
+- Treat port and interface labels such as `Configuration Loads`, `Instruction Loads`, and `Stream Data I/O` as annotations, not functional modules: use plain text and connector lanes instead of drawing boxes around them.
+- Reserve filled rectangles for actual architectural blocks and conceptual groups. Remove placeholder/invisible nodes from the final SVG when they were only needed to anchor bidirectional edges.
+- Leave intentional breathing room below shared resources such as accumulators or sum engines. Extend the canvas or enclosing panel rather than pushing the resource closer to the bottom edge.
 
 ## SVG Requirements
 
@@ -74,6 +78,7 @@ Every generated SVG must:
 - Scope styles under `svg.dgm` or an equivalent unique root. Never apply a broad `svg` selector to a page containing icons.
 - Include `title` and `desc` text that summarize the structure without repeating the entire caption.
 - Avoid external data requests and runtime fetches for static diagrams.
+- Use an explicit two-tier typography system: one consistent size/weight for all lines of a module label, and a smaller consistent size for parameters and interface annotations. Do not let multiline rendering implicitly make the first line bold and later lines normal unless that hierarchy is intentional.
 
 ## Responsive and Accessibility Checks
 
