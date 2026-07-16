@@ -1,6 +1,6 @@
 ---
 name: architecture-svg
-description: Create polished static architecture and data-path diagrams from structured JSON or YAML using inline SVG, with a soft light technical theme, semantic colors, manual layout control, legends, captions, and accessible responsive HTML embedding. Use for RTL, CPU/GPU, SoC, compiler, ISA, memory, pipeline, dependency, and other engineering architecture figures when exact visual composition matters.
+description: Create polished static architecture and data-path diagrams from structured JSON or YAML using inline SVG, with a Calibri-based engineering-diagram style, medium-gray canvas, pale blue/green/peach modules, black connectors, manual layout control, legends, captions, and accessible responsive HTML embedding. Use for RTL, CPU/GPU, SoC, compiler, ISA, memory, pipeline, dependency, and other engineering architecture figures when exact visual composition matters.
 ---
 
 # Architecture SVG
@@ -25,7 +25,7 @@ Read `references/schema.md` for the input contract and `references/theme.md` for
 4. Draw edges before nodes. Use simple orthogonal or gently curved paths with restrained neutral strokes. Add arrow markers only where direction matters.
 5. Draw group boundaries, nodes, labels, sublabels, and notes using the shared classes from `references/theme.md`.
 6. Add a compact legend only when color has persistent semantic meaning. Add `<title>`, `<desc>`, `role="img"`, and `aria-labelledby` to every SVG.
-7. Wrap the SVG in a `figure` with a soft light surface and a mono caption. Keep the caption outside the SVG so the figure can be reused in documents.
+7. Wrap the SVG in a `figure` with a light diagram surface and a Calibri caption. Keep the caption outside the SVG so the figure can be reused in documents.
 8. Inspect the rendered result at desktop and narrow widths. Fix clipped text, crossing edges, cramped labels, and unclear arrow direction before delivering it.
 9. Perform a collision pass: confirm that text never overlaps lines, arrowheads, node borders, group boundaries, legends, captions, or other labels. Adjust geometry, connector lanes, label offsets, or block sizes when it does; do not hide the collision by merely shrinking the font.
 
@@ -39,14 +39,14 @@ Read `references/schema.md` for the input contract and `references/theme.md` for
 
 ## Semantic Vocabulary
 
-Use these node kinds consistently:
+Use these node kinds consistently. Keep the fills pale and the outlines/text black, matching the reference engineering diagrams:
 
-- `base`: neutral structure or unlabeled infrastructure
-- `vec`: vector/SIMT/compute path; gold
-- `uni`: uniform/scalar/control-adjacent path; cyan
-- `ten`: tensor/accelerator path; lime
-- `mem`: register/cache/shared/external memory; blue
-- `ctl`: scheduler/control/synchronization; pink
+- `base`: neutral structure or unlabeled infrastructure; light gray or pale blue
+- `vec`: vector/SIMT/compute path; pale peach
+- `uni`: uniform/scalar/control-adjacent path; pale blue
+- `ten`: tensor/accelerator path; pale green
+- `mem`: register/cache/shared/external memory; soft green
+- `ctl`: scheduler/control/synchronization; pale peach
 
 Use the matching edge classes for important flows: `edge`, `edge-g`, `edge-c`, `edge-l`, and `edge-p`. Keep most structural edges neutral. Color the edge only when it carries the same meaning as its source or destination.
 
@@ -58,7 +58,7 @@ Use the matching edge classes for important flows: `edge`, `edge-g`, `edge-c`, `
 - Reserve clear space around every label. Never route a connector or arrowhead through text, and never place text on top of a boundary unless the overlap is an intentional, documented annotation.
 - Use one visual language per figure: blocks plus connectors, a bitfield, a matrix, or a pipeline.
 - Use dashed boundaries for dies, clusters, reserved fields, or conceptual groupings. Use dashed connectors for zoom guides or optional paths.
-- Use a low-opacity semantic fill and a thin, muted semantic stroke. Do not color every border with a different hue.
+- Use pale semantic fills, solid black or near-black borders, and black connectors. Do not color every border or line with a different hue.
 - Use a stronger stroke only for a deliberately highlighted shared resource or critical path.
 - Keep the canvas wide and shallow when the relationship is sequential. Use square geometry only for arrays and grids.
 - Keep the figure surface unframed in the outer page when the host already provides a figure wrapper; do not nest decorative cards.

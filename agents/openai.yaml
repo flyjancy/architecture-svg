@@ -1,4 +1,4 @@
 interface:
   display_name: "Architecture SVG"
-  short_description: "Create soft light architecture SVG diagrams"
-  default_prompt: "Use $architecture-svg to create a soft light technical architecture diagram from structured JSON or YAML."
+  short_description: "Create Calibri engineering architecture SVGs"
+  default_prompt: "Use $architecture-svg to create a Calibri-based engineering architecture diagram with a gray canvas, pale blue/green/peach modules, and black connectors from structured JSON or YAML."

@@ -2,6 +2,8 @@
 
 Codex skill for creating polished static architecture and data-path diagrams with inline SVG, structured JSON/YAML input, semantic colors, manual layout control, and accessible responsive HTML embedding.
 
+The default visual style uses a medium-gray canvas, pale blue/green/peach modules, black connectors, and Calibri typography.
+
 ## Contents
 
 - `SKILL.md`: workflow, composition rules, SVG requirements, and accessibility checks.
@@ -23,4 +25,3 @@ Copy this directory into your Codex skills directory, for example:
 ```text
 %USERPROFILE%\\.codex\\skills\\architecture-svg
 ```
-

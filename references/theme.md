@@ -1,35 +1,33 @@
 # Architecture SVG Theme
 
-This theme is a restrained soft light technical style inspired by Jerry's design language. Keep the semantic mapping stable across figures.
+This theme follows the supplied engineering-diagram references: a medium-gray canvas, light diagram panels, pale blue/green/peach modules, black outlines and connectors, and Calibri typography. Keep the semantic mapping stable across figures.
 
 ## Tokens
 
 ```css
---bg: #f4f6f3;
---bg-2: #ffffff;
---bg-3: #edf2ef;
---bg-4: #e3ebe7;
---line: #d8e1dc;
---line-2: #b8c7c0;
---ink: #25363a;
---ink-dim: #5d7072;
---ink-faint: #829294;
---gold: #b4863b;
---gold-2: #d2ad68;
---cyan: #4b9da5;
---lime: #78a35f;
---blue: #668ab2;
---pink: #b47c94;
---red: #c87368;
+--bg: #858585;
+--bg-2: #f1f1f1;
+--bg-3: #e7edf3;
+--bg-4: #dfe5eb;
+--line: #171717;
+--line-2: #2e2e2e;
+--ink: #111111;
+--ink-dim: #383838;
+--ink-faint: #686868;
+--fill-peach: #f7e5d7;
+--fill-peach-2: #f1d8c5;
+--fill-blue: #e4ebf3;
+--fill-green: #b8d18a;
+--fill-green-2: #d6e4b6;
 ```
 
-Use `--gold` for the primary emphasis and navigation state. Use the other muted semantic colors only for persistent categories. Use low-opacity fills around 0.12-0.16 and thin strokes around 1.3-1.6px so the figure stays soft without losing structure.
+Use `--fill-peach`, `--fill-blue`, and `--fill-green` for semantic module fills. Keep outlines and data paths black or near-black, with thin strokes around 1.3-1.6px. The gray `--bg` is the outer canvas and `--bg-2` is the light figure surface.
 
 ## Typography
 
-- Display headings: `Chakra Petch`, with `IBM Plex Sans` fallback.
-- Diagram labels and technical values: `IBM Plex Mono`, with `Cascadia Code` or a system monospace fallback.
-- Body copy: `IBM Plex Sans`, with a CJK-capable system fallback.
+- Display headings: `Calibri`, with Arial and a CJK-capable system fallback.
+- Diagram labels and technical values: `Calibri`, with Arial and a CJK-capable system fallback.
+- Body copy: `Calibri`, with Arial and a CJK-capable system fallback.
 - Diagram label: about 13px, weight 600.
 - Diagram sublabel: about 10.5px, weight 400.
 - Diagram tiny annotation: about 9.5px, weight 400.
@@ -53,21 +51,21 @@ The shared SVG classes are:
 .dgm .lbl       primary label
 .dgm .sub       secondary label
 .dgm .tiny      annotation or bit width
-.dgm .vec       muted ochre semantic fill and stroke
-.dgm .uni       muted cyan semantic fill and stroke
-.dgm .ten       muted green semantic fill and stroke
-.dgm .mem       muted blue semantic fill and stroke
-.dgm .ctl       muted rose semantic fill and stroke
-.dgm .t-vec    gold label text
-.dgm .t-uni    cyan label text
-.dgm .t-ten    lime label text
-.dgm .t-mem    blue label text
-.dgm .t-ctl    pink label text
+.dgm .vec       pale peach semantic fill and black stroke
+.dgm .uni       pale blue semantic fill and black stroke
+.dgm .ten       pale green semantic fill and black stroke
+.dgm .mem       soft green semantic fill and black stroke
+.dgm .ctl       pale peach semantic fill and black stroke
+.dgm .t-vec     black label text
+.dgm .t-uni     black label text
+.dgm .t-ten     black label text
+.dgm .t-mem     black label text
+.dgm .t-ctl     black label text
 .dgm .edge     neutral connector
-.dgm .edge-g   gold connector
-.dgm .edge-c   cyan connector
-.dgm .edge-l   lime connector
-.dgm .edge-p   pink connector
+.dgm .edge-g   black emphasized connector
+.dgm .edge-c   black emphasized connector
+.dgm .edge-l   black emphasized connector
+.dgm .edge-p   black emphasized connector
 ```
 
 Draw connectors before blocks so nodes visually sit above the data path. Use `stroke-dasharray="3 3"` for zoom guides or optional paths and `stroke-dasharray="5 4"` for a group boundary.

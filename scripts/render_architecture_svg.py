@@ -360,10 +360,10 @@ def render(data: dict[str, Any]) -> str:
         f'  <desc id="{described}">{xml_text(description)}</desc>',
         "  <defs>",
         '    <marker id="arch-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--ink-faint)" /></marker>',
-        '    <marker id="arch-arrow-g" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--gold)" /></marker>',
-        '    <marker id="arch-arrow-c" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--cyan)" /></marker>',
-        '    <marker id="arch-arrow-l" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--lime)" /></marker>',
-        '    <marker id="arch-arrow-p" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--pink)" /></marker>',
+        '    <marker id="arch-arrow-g" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--ink)" /></marker>',
+        '    <marker id="arch-arrow-c" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--ink)" /></marker>',
+        '    <marker id="arch-arrow-l" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--ink)" /></marker>',
+        '    <marker id="arch-arrow-p" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="var(--ink)" /></marker>',
         "  </defs>",
     ]
     if background:

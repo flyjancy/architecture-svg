@@ -1,24 +1,21 @@
 :root {
-  --bg: #f4f6f3;
-  --bg-2: #ffffff;
-  --bg-3: #edf2ef;
-  --bg-4: #e3ebe7;
-  --line: #d8e1dc;
-  --line-2: #b8c7c0;
-  --ink: #25363a;
-  --ink-dim: #5d7072;
-  --ink-faint: #829294;
-  --gold: #b4863b;
-  --gold-2: #d2ad68;
-  --gold-soft: rgba(180, 134, 59, 0.14);
-  --cyan: #4b9da5;
-  --lime: #78a35f;
-  --blue: #668ab2;
-  --pink: #b47c94;
-  --red: #c87368;
-  --font-body: "IBM Plex Sans", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --font-mono: "IBM Plex Mono", "Cascadia Code", ui-monospace, monospace;
-  --font-display: "Chakra Petch", "IBM Plex Sans", "Noto Sans SC", sans-serif;
+  --bg: #858585;
+  --bg-2: #f1f1f1;
+  --bg-3: #e7edf3;
+  --bg-4: #dfe5eb;
+  --line: #171717;
+  --line-2: #2e2e2e;
+  --ink: #111111;
+  --ink-dim: #383838;
+  --ink-faint: #686868;
+  --fill-peach: #f7e5d7;
+  --fill-peach-2: #f1d8c5;
+  --fill-blue: #e4ebf3;
+  --fill-green: #b8d18a;
+  --fill-green-2: #d6e4b6;
+  --font-body: "Calibri", Arial, "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --font-mono: "Calibri", Arial, "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --font-display: "Calibri", Arial, "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
 }
 
 figure.arch-figure {
@@ -90,35 +87,35 @@ svg.dgm .tiny {
 }
 
 svg.dgm .vec {
-  fill: rgba(180, 134, 59, 0.14);
-  stroke: var(--gold);
+  fill: var(--fill-peach);
+  stroke: var(--line);
 }
 
 svg.dgm .uni {
-  fill: rgba(75, 157, 165, 0.14);
-  stroke: var(--cyan);
+  fill: var(--fill-blue);
+  stroke: var(--line);
 }
 
 svg.dgm .ten {
-  fill: rgba(120, 163, 95, 0.14);
-  stroke: var(--lime);
+  fill: var(--fill-green);
+  stroke: var(--line);
 }
 
 svg.dgm .mem {
-  fill: rgba(102, 138, 178, 0.14);
-  stroke: var(--blue);
+  fill: var(--fill-green-2);
+  stroke: var(--line);
 }
 
 svg.dgm .ctl {
-  fill: rgba(180, 124, 148, 0.14);
-  stroke: var(--pink);
+  fill: var(--fill-peach-2);
+  stroke: var(--line);
 }
 
-svg.dgm .t-vec { fill: var(--gold); }
-svg.dgm .t-uni { fill: var(--cyan); }
-svg.dgm .t-ten { fill: var(--lime); }
-svg.dgm .t-mem { fill: var(--blue); }
-svg.dgm .t-ctl { fill: var(--pink); }
+svg.dgm .t-vec,
+svg.dgm .t-uni,
+svg.dgm .t-ten,
+svg.dgm .t-mem,
+svg.dgm .t-ctl { fill: var(--ink); }
 
 svg.dgm .edge,
 svg.dgm .edge-g,
@@ -129,11 +126,11 @@ svg.dgm .edge-p {
   stroke-width: 1.5;
 }
 
-svg.dgm .edge { stroke: var(--ink-faint); }
-svg.dgm .edge-g { stroke: var(--gold); opacity: 0.8; }
-svg.dgm .edge-c { stroke: var(--cyan); opacity: 0.85; }
-svg.dgm .edge-l { stroke: var(--lime); opacity: 0.85; }
-svg.dgm .edge-p { stroke: var(--pink); opacity: 0.85; }
+svg.dgm .edge { stroke: var(--ink); }
+svg.dgm .edge-g,
+svg.dgm .edge-c,
+svg.dgm .edge-l,
+svg.dgm .edge-p { stroke: var(--ink); opacity: 0.92; }
 
 @media (max-width: 920px) {
   figure.arch-figure {
