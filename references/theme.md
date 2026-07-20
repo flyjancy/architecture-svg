@@ -39,7 +39,7 @@ Keep label hierarchy visible through size and color. Do not use many font weight
 - Treat any text touching or crossing a connector, arrowhead, node border, group boundary, legend, caption, or another label as a visual defect.
 - Keep labels in clear lanes above or below paths. Use explicit offsets and short second lines instead of placing long text on top of a line.
 - Inspect the final `viewBox` at normal rendered size. If a label collides, move the path or label and enlarge the block before reducing font size.
-- Check narrow-width rendering as well as desktop rendering; responsive scaling must not turn a small gap into an overlap.
+- Check the target desktop reference size and a normal desktop browser width; mobile reflow is out of scope.
 
 ## SVG Classes
 
@@ -109,3 +109,11 @@ Use proportional rectangles in one row, then a second row expanding the field un
 ### Array
 
 Use a regular grid with one semantic color. Put input arrows on the top and left, output or accumulation arrows on the right or bottom, and place a compact precision or metadata panel beside the grid.
+
+## Input/Output Flow
+
+- Place external input/output labels outside the main group or die boundary.
+- Use visible `IN` and `OUT` flow markers with black arrows.
+- Route each input arrow into the first capture or processing block and each final response arrow out to the output endpoint.
+- Use exact RTL signal names for interface annotations when they are available.
+- Keep request outputs and return inputs on separate desktop lanes with enough spacing for labels and arrowheads.

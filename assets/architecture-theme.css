@@ -131,9 +131,3 @@ svg.dgm .edge-g,
 svg.dgm .edge-c,
 svg.dgm .edge-l,
 svg.dgm .edge-p { stroke: var(--ink); opacity: 0.92; }
-
-@media (max-width: 920px) {
-  figure.arch-figure {
-    padding: 18px 14px 12px;
-  }
-}

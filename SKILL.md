@@ -1,6 +1,6 @@
 ---
 name: architecture-svg
-description: Create polished static architecture and data-path diagrams from structured JSON or YAML using inline SVG, with a Calibri-based engineering-diagram style, medium-gray canvas, pale blue/green/peach modules, black connectors, manual layout control, legends, captions, and accessible responsive HTML embedding. Use for RTL, CPU/GPU, SoC, compiler, ISA, memory, pipeline, dependency, and other engineering architecture figures when exact visual composition matters.
+description: Create polished static architecture and data-path diagrams from structured JSON or YAML using inline SVG, with a Calibri-based desktop engineering-diagram style, medium-gray canvas, pale blue/green/peach modules, black connectors, manual layout control, legends, captions, and accessible HTML embedding. Use for RTL, CPU/GPU, SoC, compiler, ISA, memory, pipeline, dependency, and other engineering architecture figures when exact visual composition matters.
 ---
 
 # Architecture SVG
@@ -26,9 +26,15 @@ Read `references/schema.md` for the input contract and `references/theme.md` for
 5. Draw group boundaries, nodes, labels, sublabels, and notes using the shared classes from `references/theme.md`.
 6. Add a compact legend only when color has persistent semantic meaning. Add `<title>`, `<desc>`, `role="img"`, and `aria-labelledby` to every SVG.
 7. Wrap the SVG in a `figure` with a light diagram surface and a Calibri caption. Keep the caption outside the SVG so the figure can be reused in documents.
-8. Inspect the rendered result at desktop and narrow widths. Fix clipped text, crossing edges, cramped labels, and unclear arrow direction before delivering it.
+8. Inspect the rendered result at the target desktop reference size and in a normal desktop browser. Fix clipped text, crossing edges, cramped labels, and unclear arrow direction before delivering it.
 9. Perform a collision pass: confirm that text never overlaps lines, arrowheads, node borders, group boundaries, legends, captions, or other labels. Adjust geometry, connector lanes, label offsets, or block sizes when it does; do not hide the collision by merely shrinking the font.
-10. If the SVG will be opened directly as a file, add `xmlns="http://www.w3.org/2000/svg"` and explicit root `width`/`height` attributes. Keep the responsive `width:100%; height:auto` behavior in the HTML wrapper, but do not rely on `height="auto"` for a standalone SVG because some viewers calculate a zero-height canvas.
+10. If the SVG will be opened directly as a file, add `xmlns="http://www.w3.org/2000/svg"` and explicit root `width`/`height` attributes. The desktop HTML wrapper may use `width:100%; height:auto`, but do not rely on `height="auto"` for a standalone SVG because some viewers calculate a zero-height canvas.
+
+## Desktop Viewing Contract
+
+- Optimize the composition for desktop documentation pages and desktop browser viewing. Mobile reflow, narrow-screen stacking, and mobile-specific typography are out of scope.
+- Treat the fixed `viewBox` and desktop reference size as the source of truth. Preserve readable labels, deliberate whitespace, and clear connector lanes at that size.
+- Do not shrink fonts, collapse interface lanes, or rearrange the architecture merely to fit a mobile viewport. Split an overloaded figure into separate desktop figures instead.
 
 ## Rendering Choices
 
@@ -67,11 +73,23 @@ Use the matching edge classes for important flows: `edge`, `edge-g`, `edge-c`, `
 - Reserve filled rectangles for actual architectural blocks and conceptual groups. Remove placeholder/invisible nodes from the final SVG when they were only needed to anchor bidirectional edges.
 - Leave intentional breathing room below shared resources such as accumulators or sum engines. Extend the canvas or enclosing panel rather than pushing the resource closer to the bottom edge.
 
+## Input/Output Flow Requirements
+
+When the figure contains external interfaces or data-flow boundaries, apply these rules:
+
+- Draw external input and output endpoints or interface labels outside the main diagram boundary.
+- Mark flow direction explicitly with `IN` and `OUT` tags. Do not rely on an unlabeled arrow when the direction carries architectural meaning.
+- Every input endpoint must have an arrow pointing to the first capture or processing module.
+- The final response or processing module must have an arrow pointing to the output endpoint.
+- Prefer exact RTL signal names for interface labels. Do not replace a known signal name with a vague functional nickname.
+- Draw request outputs and return inputs on separate lanes or lines so their directions cannot be confused.
+- Keep endpoint labels as plain text annotations; use filled rectangles only for actual architectural blocks.
+
 ## SVG Requirements
 
 Every generated SVG must:
 
-- Have a stable `viewBox` and `width="100%" height="auto"` in HTML.
+- Have a stable `viewBox` sized for the desktop reference composition. When embedded in HTML, `width="100%" height="auto"` is acceptable.
 - Define arrow markers in `<defs>` when arrows are used.
 - Escape all user-provided text. Never inject raw HTML into labels.
 - Use `currentColor` only when the surrounding document intentionally supplies the color; otherwise use the theme classes.
@@ -80,14 +98,15 @@ Every generated SVG must:
 - Avoid external data requests and runtime fetches for static diagrams.
 - Use an explicit two-tier typography system: one consistent size/weight for all lines of a module label, and a smaller consistent size for parameters and interface annotations. Do not let multiline rendering implicitly make the first line bold and later lines normal unless that hierarchy is intentional.
 
-## Responsive and Accessibility Checks
+## Desktop and Accessibility Checks
 
 Before delivery, verify:
 
 - Labels fit inside their parent blocks at the final `viewBox` scale.
 - Text does not overlap connectors, arrowheads, node borders, group boundaries, legends, captions, other labels, or the canvas edge.
 - Lines do not pass through text or create ambiguous tangencies with text and borders; adjust paths and label offsets until the figure reads cleanly at normal viewing size.
-- The SVG scales down without horizontal page overflow. Use `width:100%` and preserve aspect ratio.
+- The figure reads cleanly at the target desktop reference size and a normal desktop browser width.
+- Desktop resizing preserves the aspect ratio and does not clip labels, endpoints, or connector lanes.
 - Color is paired with text, position, shape, or line style; meaning must not depend on color alone.
 - The figure remains understandable in grayscale or with semantic colors muted.
 - The SVG has a useful accessible name and description.
@@ -102,7 +121,7 @@ Before delivery, verify:
 ## Resources
 
 - `references/schema.md`: JSON/YAML source contract and examples.
-- `references/theme.md`: Jerry-inspired palette, typography, CSS classes, and layout rules.
+- `references/theme.md`: reference palette, typography, CSS classes, input/output flow rules, and layout rules.
 - `scripts/render_architecture_svg.py`: deterministic JSON/YAML-to-SVG renderer with validation.
 - `assets/architecture-theme.css`: reusable SVG and figure CSS.
 - `assets/architecture-svg-template.html`: minimal static HTML embedding template.

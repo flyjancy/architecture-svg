@@ -1,8 +1,8 @@
 # Architecture SVG
 
-Codex skill for creating polished static architecture and data-path diagrams with inline SVG, structured JSON/YAML input, semantic colors, manual layout control, and accessible responsive HTML embedding.
+Codex skill for creating polished static architecture and data-path diagrams with inline SVG, structured JSON/YAML input, semantic colors, manual layout control, and accessible desktop HTML embedding.
 
-The default visual style uses a medium-gray canvas, pale blue/green/peach modules, black connectors, and Calibri typography.
+The default visual style uses a medium-gray canvas, pale blue/green/peach modules, black connectors, and Calibri typography. Composition and QA are optimized for desktop viewing; mobile-specific layout is out of scope.
 
 ## Contents
 
